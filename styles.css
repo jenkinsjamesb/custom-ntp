@@ -110,6 +110,10 @@ a:hover {
     transition: color 0.25s;
 }
 
+#options {
+    flex-direction: column;
+}
+
 /* selection */
 ::selection {
     color: var(--color-fringe);

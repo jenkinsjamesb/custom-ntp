@@ -4,8 +4,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
         <link rel="shortcut icon" href="favicon.png" type="image/png">
-        <script src="script.js"></script>
         <title id="title">New Tab</title>
+        <script src="script.js" defer></script>
     </head>
 
     <body>
@@ -30,7 +30,26 @@
                         </ul>
                     </p>
                 </div>
-                <img src="resources/thumb.jpg" width="128px" height="128px">
+                <img id="image" src="resources/thumb.jpg" width="128px" height="128px">
+            </div>
+            <div id="options" style="display: none;">
+                <div id="weather">
+                    <label for="weather-input">Weather:</label>
+                    <input type="checkbox" id="weather-input">
+                  </div>
+            
+                  <div id="image-path">
+                    <label for="image-input">Image:</label>
+                    <input type="file" id="image-input" accept="image/png, image/jpeg">
+                  </div>
+
+                  <div id="image-path">
+                    <label for="reset">Reset:</label>
+                    <button id="reset" style="width: min-content;">Reset</button>
+                  </div>
+                  
+                  <div id="status"></div>
+                </div>
             </div>
         </div>
     </body>

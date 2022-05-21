@@ -2,7 +2,13 @@
     "name": "Custom NTP",
     "description": "Overrides the new tab page",
     "version": "0.1",
+    "permissions": [ "storage", "geolocation" ],
     "chrome_url_overrides": { "newtab": "index.html" },
-    "icons": { "128": "favicon.png" },
+    "action" : {
+      "default_popup": "popup.html"
+    },
+    "icons": { 
+      "128": "favicon.png" 
+    },
     "manifest_version": 3
   }
