@@ -1,0 +1,8 @@
+{
+    "name": "Custom NTP",
+    "description": "Overrides the new tab page",
+    "version": "0.1",
+    "chrome_url_overrides": { "newtab": "index.html" },
+    "icons": { "128": "favicon.png" },
+    "manifest_version": 3
+  }
