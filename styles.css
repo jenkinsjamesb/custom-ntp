@@ -98,6 +98,7 @@ img {
     border: var(--border);
     object-fit: cover;
     pointer-events: none;
+    background-color: var(--color-main);
 }
 
 a, a:visited:active {
