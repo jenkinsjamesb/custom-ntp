@@ -3,7 +3,7 @@
     --color-main: #555;
     --color-accent: #db0;
     --color-fringe: #afa;
-    --text-color: #fff;
+    --color-text: #fff;
     --border: 2px solid var(--color-accent);
     --transparent: rgba(0,0,0,0);
 }
@@ -12,7 +12,7 @@ body {
     background-color: var(--color-bg);
     margin: 0px;
     padding: 0px;
-    color: var(--text-color);
+    color: var(--color-text);
     font-family: "Lucida Console", monospace;
     font-size: 12px;
     overflow-y: auto;
@@ -58,7 +58,7 @@ canvas {
     background: none;
     border: 0px;
     border-bottom: 2px solid var(--color-main);
-    color: var(--text-color);
+    color: var(--color-text);
     font-family: inherit;
     outline: 0;
 }
