@@ -17,7 +17,7 @@ let toggleSettings = async () => {
     [].forEach.call(document.getElementsByClassName("settings"), (elem) => elem.style.display = settings.visible ? "inherit":"none");
 }
 
-// Saves options to chrome.storage
+// Saves options to chrome.storage (local necessary due to large base64 write)
 const save_options = async () => {
     var enableWeather = document.getElementById("weather-input").checked;
     var customImg = settings.customImg;
@@ -28,7 +28,7 @@ const save_options = async () => {
       fringe: document.getElementById("fringe-input").value,
       text: document.getElementById("text-input").value
     };
-    chrome.storage.sync.set({
+    chrome.storage.local.set({
       enableWeather: enableWeather,
       customImg: customImg,
       customColors: customColors
@@ -38,7 +38,7 @@ const save_options = async () => {
 // Restores radio button states using the preferences stored in chrome.storage.
 const restore_options = async () => {
     return new Promise(resolve => {
-        chrome.storage.sync.get({
+        chrome.storage.local.get({
             enableWeather: false,
             customImg: "resources/thumb.png",
             customColors: {
@@ -51,7 +51,8 @@ const restore_options = async () => {
         }, items => {
             settings.enableWeather = items.enableWeather;
             document.getElementById("weather-input").checked = items.enableWeather;
-            settings.customImg = items.customImg
+            settings.customImg = items.customImg;
+            console.log(settings.customImg);
             document.getElementById("image").src = items.customImg;
             Object.assign(settings.customColors, items.customColors);
             document.getElementById("bg-input").value = items.customColors.bg;
@@ -87,11 +88,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         elem.style.width = (elem.value.length + 1) + 'ch';
     }
 
-    // Handles image input
+    // Handles image input & creates permanent b64 src
     document.getElementById("image-input").oninput = (e) => {
         let url = URL.createObjectURL(e.target.files[0]);
-        document.createElement("img").src = url;
-        settings.customImg = url;
+        const img = new Image();
+        img.setAttribute('crossOrigin', 'anonymous');
+        img.src = url;
+
+        img.onload = () => {
+            const canvas = document.createElement("canvas");
+            canvas.width = 512;
+            canvas.height = 512;
+            if (img.width > img.height) canvas.width *= img.width / img.height;
+            if (img.width < img.height) canvas.height *= img.height / img.width;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            const dataURL = canvas.toDataURL("image/png");
+            settings.customImg = dataURL;
+        }
     }
 
     document.getElementById("reset-image").onclick = () => {
