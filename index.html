@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
         <link rel="shortcut icon" href="favicon.png" type="image/png">
         <title id="title">New Tab</title>
         <script src="script.js" defer></script>
@@ -11,11 +12,13 @@
     <body>
         <canvas id="bg-canvas"></canvas>
         <div id="container">
+            <button id="settings-toggle" tabindex=-1>&#x2699</button>
+            <button id="refresh-button" tabindex=-1>&#x27f3</button>
             <div id="search">
                 <form action="https://www.google.com/search" autocomplete="off">
                     <div>
                         <label for="q">search:</label>
-                        <input type="text" name="q" autofocus>
+                        <input type="text" name="q"  id="search-input" autofocus>
                         <input type="submit" value="ok" for="q">
                     </div>
                 </form>
@@ -33,25 +36,44 @@
                         </ul>
                     </p>
                 </div>
-                <img id="image" src="resources/thumb.png" width="128px" height="128px">
+                <img id="image" width="128px" height="128px">
             </div>
-            <div id="options" style="display: none;">
+            <div id="settings-container" class="settings" style="display: none;">
+                <div id="image-source">
+                    <label>
+                        Image:
+                        <input type="file" id="image-input">
+                        <button type="button" id="reset-image">Reset Image</button>
+                    </label>
+                </div>
+                <div id="color-settings" class="settings" style="display: none;">
+                    <label title="The color used for the background.">
+                        Background Color:
+                        <input id="bg-input" type="text" placeholder="#333" autocomplete="off">
+                    </label>
+                    <label title="The color used to shade all the boxes.">
+                        Foreground Color:
+                        <input id="fg-input" type="text" placeholder="#555" autocomplete="off">
+                    </label>
+                    <label title="The color used for outlines.">
+                        Accent Color:
+                        <input id="accent-input" type="text" placeholder="#db0" autocomplete="off">
+                    </label>
+                    <label title="The color used for niche elements, like the inputs.">
+                        Fringe Color:
+                        <input id="fringe-input" type="text" placeholder="#afa" autocomplete="off">
+                    </label>
+                    <label title="The color used for most text.">
+                        Text Color:
+                        <input id="text-input" type="text" placeholder="#fff" autocomplete="off">
+                    </label>
+                </div>
                 <div id="weather">
-                    <label for="weather-input">Weather:</label>
-                    <input type="checkbox" id="weather-input">
-                  </div>
-            
-                  <div id="image-path">
-                    <label for="image-input">Image:</label>
-                    <input type="file" id="image-input" accept="image/png, image/jpeg">
-                  </div>
-
-                  <div id="image-path">
-                    <label for="reset">Reset:</label>
-                    <button id="reset" style="width: min-content;">Reset</button>
-                  </div>
-                  
-                  <div id="status"></div>
+                    <label>
+                        Weather:
+                        <input type="checkbox" id="weather-input">
+                    </label>
+                </div>
             </div>
         </div>
     </body>

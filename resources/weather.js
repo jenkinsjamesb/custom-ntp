@@ -78,16 +78,15 @@ callback = (timestamp) => {
 getWeather = () => {
     let lat, lon;
     navigator.geolocation.getCurrentPosition((pos) => {
-        lat = pos.coords.latitude;
-        lon = pos.coords.longitude;
-    });
+        let lat = pos.coords.latitude, lon = pos.coords.longitude;
 
-    let url = "https://forecast.weather.gov/MapClick.php?lat=" + lat + "&lon=" + lon + "*/"
-    fetch(url).then((response) => {
-        return response.text().then((text) => {
-	        var doc = new DOMParser().parseFromString(text, 'text/html');
-            console.log(doc.querySelector(".myforecast-current"));
-        });
+        let url = "https://forecast.weather.gov/MapClick.php?lat=" + lat + "&lon=" + lon + "*/"
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                var doc = new DOMParser().parseFromString(data, 'text/html');
+                console.log(doc);
+            });
     });
 }
 
@@ -100,6 +99,8 @@ main = () => {
     ctx.fillStyle = "#333";
     ctx.fillRect(0,0,w,h);
     ctx.save();
+
+    //getWeather(); pain
 
     for (let i = 0; i < NUM_FLAKES; i++) {
         var c = new Circle(rand(MIN_RADIUS, MAX_RADIUS));

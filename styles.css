@@ -1,6 +1,6 @@
 :root {
     --color-bg: #333;
-    --color-main: #555;
+    --color-fg: #555;
     --color-accent: #db0;
     --color-fringe: #afa;
     --color-text: #fff;
@@ -17,6 +17,47 @@ body {
     font-size: 12px;
     overflow-y: auto;
     user-select: none;
+}
+
+#container > button {
+    background-color: var(--color-fg);
+    color: var(--color-text);
+    font-size: large;
+    border: var(--border);
+    outline: none;
+    padding: 0px 3px;
+    margin: 0px;
+    position: fixed;
+    top: 2px;
+    transition: all 0.5s;
+    pointer-events: all;
+}
+
+#settings-toggle {
+    left: 2px;
+}
+
+#refresh-button {
+    right: 2px;
+    padding: 0px 3.5px;
+}
+
+#container > button.active {
+    font-size: 12px;
+    font-family: "Lucida Console", monospace;
+    padding: auto;
+    background-color: var(--color-fringe);
+    color: var(--color-bg);
+}
+
+#container > button:hover {
+    background-color: var(--color-fringe);
+    color: var(--color-bg);
+}
+
+#container > button.active:hover {
+    background-color: var(--color-fg);
+    color: var(--color-text);
 }
 
 canvas {
@@ -57,7 +98,7 @@ canvas {
     padding: 1px;
     background: none;
     border: 0px;
-    border-bottom: 2px solid var(--color-main);
+    border-bottom: 2px solid var(--color-fg);
     color: var(--color-text);
     font-family: inherit;
     outline: 0;
@@ -67,7 +108,7 @@ canvas {
     margin: 5px 10px;
     color: var(--color-fringe);
     border: var(--border);
-    background-color: var(--color-main);
+    background-color: var(--color-fg);
     transition: background-color 0.25s;
 }
 
@@ -82,12 +123,23 @@ canvas {
     flex-direction: row;
     margin: 5%;
     max-width: 60%;
-    background-color: var(--color-main);
+    background-color: var(--color-fg);
     border: var(--border);
 }
 
 #basket * {
     margin: 5%;
+}
+
+#settings-container, #color-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#settings-container > div {
+    margin-bottom: 10px;
 }
 
 ul {
@@ -98,7 +150,7 @@ img {
     border: var(--border);
     object-fit: cover;
     pointer-events: none;
-    background-color: var(--color-main);
+    background-color: var(--color-fg);
 }
 
 a, a:visited:active {
@@ -109,10 +161,6 @@ a, a:visited:active {
 a:hover {
     color: #7c7;
     transition: color 0.25s;
-}
-
-#options {
-    flex-direction: column;
 }
 
 /* selection */
