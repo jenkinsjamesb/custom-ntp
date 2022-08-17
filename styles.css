@@ -19,6 +19,7 @@ body {
     user-select: none;
 }
 
+/* settings/reset button */
 #container > button {
     background-color: var(--color-fg);
     color: var(--color-text);
@@ -59,6 +60,8 @@ body {
     background-color: var(--color-fg);
     color: var(--color-text);
 }
+
+/* general */
 
 canvas {
     position: absolute;
@@ -117,6 +120,23 @@ canvas {
     transition: background-color 0.25s;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > div {
+    display: flex;
+    flex-direction: row;
+    margin: 2% 2%;
+}
+
+form label {
+    display: flex;
+    flex-direction: row;
+    margin-right: 5px;
+}
+
 /* basket */
 #basket {
     display: flex;
@@ -131,7 +151,19 @@ canvas {
     margin: 5%;
 }
 
-#settings-container, #color-settings {
+#basket ul {
+    transform: translate(-25%, 0);
+}
+
+#basket img {
+    border: var(--border);
+    object-fit: cover;
+    pointer-events: none;
+    background-color: var(--color-fg);
+}
+
+/* settings */
+#settings-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,19 +172,61 @@ canvas {
 
 #settings-container > div {
     margin-bottom: 10px;
+    padding: 0px;
 }
 
-ul {
-    transform: translate(-25%, 0);
-}
-
-img {
-    border: var(--border);
-    object-fit: cover;
-    pointer-events: none;
+#settings-container button, ::-webkit-file-upload-button {
     background-color: var(--color-fg);
+    color: var(--color-text);
+    border: var(--border);
+    outline: none;
+    transition: all 0.5s;
+    pointer-events: all;
 }
 
+#settings-container button:hover, ::-webkit-file-upload-button:hover {
+    background-color: var(--color-fringe);
+    color: var(--color-bg);
+}
+
+#color-settings {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#color-settings label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 2% 2% 2% 0%;
+}
+
+#color-settings input {
+    transform: translate(5%, -20%);
+}
+
+input {
+    accent-color: var(--color-fringe);
+    outline: none;
+}
+
+input[type=radio] {
+    position: relative;
+    top: -3px;
+}
+
+input[type=text] {
+    padding: 1px;
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid var(--color-accent);
+    margin-top: 1px;
+    color: var(--color-fringe);
+    font-family: inherit;
+}
+
+/* links */
 a, a:visited:active {
     color: var(--color-fringe);
     transition: color 0.25s;
