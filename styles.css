@@ -222,7 +222,7 @@ form label {
     padding: 1px;
     background: none;
     border: 0px;
-    border-bottom: 1px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
     margin-top: 1px;
     color: var(--color-fringe);
     font-family: inherit;
