@@ -81,6 +81,26 @@ canvas {
     height: 100vh;
 }
 
+input {
+    accent-color: var(--color-fringe);
+    outline: none;
+}
+
+input[type=radio] {
+    position: relative;
+    top: -3px;
+}
+
+input[type=text] {
+    padding: 1px;
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid var(--color-accent);
+    margin-top: 1px;
+    color: var(--color-fringe);
+    font-family: inherit;
+}
+
 /* search bar */
 #search {
     display: flex;
@@ -91,6 +111,7 @@ canvas {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     font-size: inherit;
 }
 
@@ -128,13 +149,14 @@ form {
 form > div {
     display: flex;
     flex-direction: row;
-    margin: 2% 2%;
+    margin: 0% 2%;
 }
 
 form label {
     display: flex;
     flex-direction: row;
     margin-right: 5px;
+    align-items: center;
 }
 
 /* basket */
@@ -195,7 +217,7 @@ form label {
     width: 100%;
 }
 
-#color-settings label {
+#color-settings > label {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -204,26 +226,6 @@ form label {
 
 #color-settings input {
     transform: translate(5%, -20%);
-}
-
-input {
-    accent-color: var(--color-fringe);
-    outline: none;
-}
-
-input[type=radio] {
-    position: relative;
-    top: -3px;
-}
-
-input[type=text] {
-    padding: 1px;
-    background: none;
-    border: 0px;
-    border-bottom: 1px solid var(--color-accent);
-    margin-top: 1px;
-    color: var(--color-fringe);
-    font-family: inherit;
 }
 
 /* links */
