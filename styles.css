@@ -34,11 +34,11 @@ body {
     pointer-events: all;
 }
 
-#settings-toggle {
+#container > #settings-toggle {
     left: 2px;
 }
 
-#refresh-button {
+#container > #refresh-button {
     right: 2px;
     padding: 0px 3.5px;
 }
