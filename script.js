@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         img.onload = () => {
             const canvas = document.createElement("canvas");
-            canvas.width = 512;
-            canvas.height = 512;
+            canvas.width = 256;
+            canvas.height = 256;
             if (img.width > img.height) canvas.width *= img.width / img.height;
             if (img.width < img.height) canvas.height *= img.height / img.width;
             const ctx = canvas.getContext("2d");
