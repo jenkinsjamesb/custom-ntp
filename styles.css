@@ -13,7 +13,7 @@ body {
     margin: 0px;
     padding: 0px;
     color: var(--color-text);
-    font-family: "Lucida Console", monospace;
+    font-family: "Fira Mono", monospace !important;
     font-size: 12px;
     overflow-y: auto;
     user-select: none;
@@ -23,11 +23,16 @@ body {
 #container > button {
     background-color: var(--color-fg);
     color: var(--color-text);
-    font-size: large;
+    font-size: 20px;
+    font-family: "Fira Mono", monospace;
+    width: 24px;
+    height: 24px;
     border: var(--border);
     outline: none;
-    padding: 0px 3px;
-    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
     position: fixed;
     top: 2px;
     transition: all 0.5s;
@@ -40,20 +45,22 @@ body {
 
 #container > #refresh-button {
     right: 2px;
-    padding: 0px 3.5px;
 }
 
 #container > button.active {
     font-size: 12px;
-    font-family: "Lucida Console", monospace;
-    padding: auto;
+    width: auto;
+    padding: 1px;
     background-color: var(--color-fringe);
     color: var(--color-bg);
+    fill: var(--color-bg);
+    background-image: none;
 }
 
 #container > button:hover {
     background-color: var(--color-fringe);
     color: var(--color-bg);
+    
 }
 
 #container > button.active:hover {
@@ -152,6 +159,10 @@ form label {
     max-width: 60%;
     background-color: var(--color-fg);
     border: var(--border);
+}
+
+h4 {
+    font-weight: normal;
 }
 
 #basket * {

@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         else {
             save_options();
             sButton.innerText = "\u2699";
-            rButton.innerText = "\u27f3";
+            rButton.innerText = "\u21bb";
             sButton.classList.remove("active");
             rButton.classList.remove("active");
             location.reload();
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (document.getElementById("refresh-button").classList.contains("active")) {
             toggleSettings();
             sButton.innerText = "\u2699";
-            rButton.innerText = "\u27f3";
+            rButton.innerText = "\u21bb";
             sButton.classList.remove("active");
             rButton.classList.remove("active");
         } else location.reload();
